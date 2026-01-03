@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from app.config import settings
 from app.database import init_db
-from app.routes import clientes, produtos, relatorios
+from app.routes import clientes, produtos, relatorios, auth  # ← Adicionado auth
 from app.models import users
 
 # Criar aplicação FastAPI
@@ -31,6 +31,7 @@ app.mount("/uploads", StaticFiles(directory=settings.UPLOAD_DIR), name="uploads"
 app.include_router(clientes.router)
 app.include_router(produtos.router)
 app.include_router(relatorios.router)
+app.include_router(auth.router)  # ← NOVA LINHA
 
 # Evento de inicialização (executado quando app inicia)
 @app.on_event("startup")
