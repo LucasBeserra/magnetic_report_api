@@ -4,7 +4,6 @@ from fastapi.staticfiles import StaticFiles
 from app.config import settings
 from app.database import init_db
 from app.routes import clientes, produtos, relatorios, auth  # ← Adicionado auth
-from app.models import users
 
 # Criar aplicação FastAPI
 app = FastAPI(
