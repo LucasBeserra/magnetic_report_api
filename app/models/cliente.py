@@ -4,23 +4,15 @@ from sqlalchemy.sql import func
 from app.database import Base
 
 class Cliente(Base):
-    """
-    Modelo de Cliente.
-    
-    Cada atributo vira uma coluna na tabela 'clientes'.
-    SQLAlchemy converte automaticamente snake_case para nomes de tabela.
-    """
+
     __tablename__ = "clientes"
     
     # Colunas
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     nome = Column(String(200), nullable=False)
     email = Column(String(200), unique=True, nullable=True, index=True)
-    telefone = Column(String(20), nullable=True)
-    empresa = Column(String(200), nullable=True)
-    endereco = Column(String(500), nullable=True)
     
-    # Timestamps automáticos
+    # Timestamps 
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     

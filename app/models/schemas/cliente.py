@@ -15,9 +15,6 @@ class ClienteBase(BaseModel):
     """Schema base com campos comuns"""
     nome: str = Field(..., min_length=1, max_length=200, description="Nome do cliente")
     email: Optional[EmailStr] = Field(None, description="Email válido")
-    telefone: Optional[str] = Field(None, max_length=20)
-    empresa: Optional[str] = Field(None, max_length=200)
-    endereco: Optional[str] = Field(None, max_length=500)
 
 class ClienteCreate(ClienteBase):
     """
@@ -33,9 +30,6 @@ class ClienteUpdate(BaseModel):
     """
     nome: Optional[str] = Field(None, min_length=1, max_length=200)
     email: Optional[EmailStr] = None
-    telefone: Optional[str] = Field(None, max_length=20)
-    empresa: Optional[str] = Field(None, max_length=200)
-    endereco: Optional[str] = Field(None, max_length=500)
 
 class ClienteResponse(ClienteBase):
     """

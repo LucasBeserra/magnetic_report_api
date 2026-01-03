@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from app.config import settings
 from app.database import init_db
 from app.routes import clientes, produtos, relatorios
+from app.models import users
 
 # Criar aplicação FastAPI
 app = FastAPI(
@@ -68,5 +69,5 @@ def health_check():
         "version": settings.VERSION
     }
 
-# Para rodar: uvicorn app.main:app --reload
+# Para rodar: poetry run uvicorn app.main:app --reload
 # --reload: reinicia automaticamente ao detectar mudanças no código
